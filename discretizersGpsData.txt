@@ -1,0 +1,7 @@
+Locations,Latitude,Longitude
+Kemper,38.53705,-121.75466
+Aboretum,38.53477,-121.75497
+East Meyer,38.53477,-121.75497
+Primero Grove,38.54613,-121.75557
+Hutchinson Health Science Dr,38.537,-121.76418
+College of Ag,38.53721,-121.74981
