@@ -6,3 +6,5 @@ Core objective:
 Reach objective:
   Use real-time GPS data acquired locally on IOS device to present end-users with 3D field vector graph.
   The field vector graph represents work done by the user(s)
+
+Team members: Hieu Bui, Manuel Haro, Rafael Crispin
