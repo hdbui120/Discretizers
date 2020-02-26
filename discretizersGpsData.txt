@@ -5,3 +5,11 @@ East Meyer,38.53477,-121.75497
 Primero Grove,38.54613,-121.75557
 Hutchinson Health Science Dr,38.537,-121.76418
 College of Ag,38.53721,-121.74981
+Dairy Road,38.5344,-121.759
+Shield Library,38.54,-121.7499
+Parking Lot 53,38.5344,-121.7656
+Sft Ball Field Roundabout,38.5461,-121.7607
+Dairy Road,38.5344,-121.759
+Shield Library,38.54,-121.7499
+Parking Lot 53,38.5344,-121.7656
+Sft Ball Field Roundabout,38.5461,-121.7607
