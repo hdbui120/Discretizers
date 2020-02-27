@@ -9,7 +9,3 @@ Dairy Road,38.5344,-121.759
 Shield Library,38.54,-121.7499
 Parking Lot 53,38.5344,-121.7656
 Sft Ball Field Roundabout,38.5461,-121.7607
-Dairy Road,38.5344,-121.759
-Shield Library,38.54,-121.7499
-Parking Lot 53,38.5344,-121.7656
-Sft Ball Field Roundabout,38.5461,-121.7607
