@@ -6,3 +6,6 @@ Agriculture and Environmental,38.53721,-121.74981
 East Meyer,38.53477,-121.75497
 Aboretum,38.53301,-121.75481
 Shields,38.54002,-121.74992
+Dairy Road,38.5344,-121.759
+Parking Lot 53,38.53439,-121.76555
+Softball Field Roundabout,38.54607,-121.76071
