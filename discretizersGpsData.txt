@@ -1,0 +1,8 @@
+Locations,latitude,longitude
+Kemper,38.53705,-121.75466
+Primero Grove,38.54613,-121.75557
+Hutchinson and Health Dr,38.537,-121.76418
+Agriculture and Environmental,38.53721,-121.74981
+East Meyer,38.53477,-121.75497
+Aboretum,38.53301,-121.75481
+Shields,38.54002,-121.74992
