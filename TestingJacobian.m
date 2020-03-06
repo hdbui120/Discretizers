@@ -4,12 +4,20 @@ latitudeIncrementPerPixel = 0.000013; % This value was truncated
 
 
 
+parentGPSX = -121.768097;
+parentGPSY = 38.546339;
+
+
+
 % Kemper Pixel Coordinates
-kemperPixelLocationX = 790; % approximate
-kemperPixelLocationY = 710; % approximate
+% kemperPixelLocationX = 0; % approximate
+% kemperPixelLocationY = 0; % approximate
 % Kemper Long & Lat Coordinates
 kemperLongitudeLocation = -121.754806;
 kemperLatitudeLocation = 38.537083;
+
+
+
 
 % Dairy Pixel Coordinates
 dairyPixelLocationX = 553; % approximate
@@ -43,9 +51,23 @@ arboretumLatitudeLocation = 38.532998;
 
 
 % Kemper Computation
-calculatedLongitude = (kemperLongitudeLocation)+(((longitudeIncrementPerPixel * kemperPixelLocationX))/70);
-calculatedlatitude = (kemperLatitudeLocation)-(((latitudeIncrementPerPixel * kemperPixelLocationY))/70);
-kemperCoordinate = [calculatedlatitude, calculatedLongitude];
+kemperPixelLocationX = abs((parentGPSX)-(kemperLongitudeLocation))/longitudeIncrementPerPixel
+kemperPixelLocationY = abs((parentGPSY)-(kemperLatitudeLocation)) / latitudeIncrementPerPixel
+
+%Meyer Computation
+meyerXDiff = abs((parentGPSX)-(meyerLongitudeLocation))/longitudeIncrementPerPixel
+meyerYDiff = abs((parentGPSY)-(meyerLatitudeLocation)) / latitudeIncrementPerPixel
+
+kemperPixelLocationX = kemperXDiff*longitudeIncrementPerPixel;
+kemperPixelLocationY = kemperYDiff*latitudeIncrementPerPixel;
+
+
+
+
+
+
+
+
 
 % Dairy Computation
 dairyCalculatedLongitude = (dairyLongitudeLocation)+(((longitudeIncrementPerPixel * dairyPixelLocationX))/70);
@@ -70,8 +92,8 @@ arboretumCoordinate = [arboretumCalculatedlatitude, arboretumCalculatedLongitude
 
 
 % Coordinate Outputs
-display(kemperCoordinate); % Google Maps Format (lat, long)
-display(dairyRoadCoordinate); % Google Maps Format (lat, long)
-display(lot53Coordinate); % Google Maps Format (lat, long)
-display(meyerCoordinate); % Google Maps Format (lat, long)
-display(arboretumCoordinate); % Google Maps Format (lat, long)
+% display(kemperCoordinate); % Google Maps Format (lat, long)
+% display(dairyRoadCoordinate); % Google Maps Format (lat, long)
+% display(lot53Coordinate); % Google Maps Format (lat, long)
+% display(meyerCoordinate); % Google Maps Format (lat, long)
+% display(arboretumCoordinate); % Google Maps Format (lat, long)
