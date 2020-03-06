@@ -1,29 +1,11 @@
 classdef mapping
     properties
-        xPixelList
-        yPixelList
-        parentGPSX
-        parentGPSY
-        longitudeIncrementPerPixel
-        latitudeIncrementPerPixel
+        format long
+        parentGPSX = -121.768097;
+        parentGPSY = 38.546339;
+        longitudeIncrementPerPixel = 0.0000167;
+        latitudeIncrementPerPixel = 0.0000133;
     end
-    
-    format long
-
-% Wannabe Jacobians
-longitudeIncrementPerPixel = 0.0000167; % This needs to be rounded up
-latitudeIncrementPerPixel = 0.0000133; % This value was truncated
-
-parentGPSX = -121.768097;
-parentGPSY = 38.546339;
-
-xPixelList = gpX2Pixel(locations.longitude);
-yPixelList = gpY2Pixel(locations.latitude);
-
-locations = readtable('discretizersGpsData.txt', private);
-
-latitude = locations.latitude(private);
-longitude = locations.longitude;
     
     methods
         function [y] = gpY2Pixel(obj,lat)
@@ -40,7 +22,20 @@ longitude = locations.longitude;
     end
 end
 
-
+% % Wannabe Jacobians
+% longitudeIncrementPerPixel = 0.0000167; % This needs to be rounded up
+% latitudeIncrementPerPixel = 0.0000133; % This value was truncated
+% 
+% parentGPSX = -121.768097;
+% parentGPSY = 38.546339;
+% 
+% xPixelList = gpX2Pixel(locations.longitude);
+% yPixelList = gpY2Pixel(locations.latitude);
+% 
+% locations = readtable('discretizersGpsData.txt', private);
+% 
+% latitude = locations.latitude(private);
+% longitude = locations.longitude;
 
 % %%%%%%%%%%%%%%%%%%%
 % kemperLongitudeLocation = -121.754806;
