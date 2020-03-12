@@ -1,39 +1,28 @@
-[file,path] = uigetfile('*.csv');
-data = readtable(file);
+classdef mapping < handle
 
-if(table2array(data(3,2)) > 0)
-    latitude = table2array(data(:,2)); longitude = table2array(data(:,3));
-else
-    latitude = table2array(data(:,3)); longitude = table2array(data(:,2));
-end
+    properties (Access = private)
+        parentGPSY = 38.546339; 
+        parentGPSX = -121.768097;
+        latitudeIncrementPerPixel = 0.0000133;
+        longitudeIncrementPerPixel = 0.0000167;   
+    end
+    
+    properties
+        y = 0;
+        x = 0;
+    end
+    
+    methods
 
-pixelLong = gpX2Pixel(longitude);
-pixelLat = gpY2Pixel(latitude);
-
-xl = [0,1653];
-yl = [0,1559];
-im = imread('CampusMap.png');
-h = image(xl, yl, im);impixelinfo,
-ax = gca;
-ax.YDir = 'reverse';
-uistack(h, 'bottom');
-
-
-x = pixelLong;
-y = pixelLat;
-
-hold on;
-plot(x,y, 'o', 'MarkerFaceColor', 'r', 'MarkerSize', 6);
-grid on;
-
-function [y] = gpY2Pixel(lat) 
-    parentGPSY = 38.546339;
-    latitudeIncrementPerPixel = 0.0000133;
-    y = abs((parentGPSY)-(lat))/ latitudeIncrementPerPixel;
-end
-
-function [x] = gpX2Pixel(long)
-    parentGPSX = -121.768097;
-    longitudeIncrementPerPixel = 0.0000167;
-    x = abs((parentGPSX)-(long))/longitudeIncrementPerPixel;
+        function gpy2Pixel(obj,lat)            
+            obj.y = abs((obj.parentGPSY)-(lat))/ obj.latitudeIncrementPerPixel;
+            obj.y = round(obj.y);
+        end
+        
+        function gpx2Pixel(obj,long)
+            obj.x = abs((obj.parentGPSX)-(long))/obj.longitudeIncrementPerPixel;
+            obj.x = round(obj.x); 
+        end
+        
+    end
 end
