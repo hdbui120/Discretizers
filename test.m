@@ -1,39 +1,30 @@
-[file,path] = uigetfile('*.csv');
-data = readtable(file);
+%interp to increase sample size
 
-if(table2array(data(3,2)) > 0)
-    latitude = table2array(data(:,2)); longitude = table2array(data(:,3));
-else
-    latitude = table2array(data(:,3)); longitude = table2array(data(:,2));
-end
-
-pixelLong = gpX2Pixel(longitude);
-pixelLat = gpY2Pixel(latitude);
-
-xl = [0,1653];
-yl = [0,1559];
+xl = [0 1653];
+yl = [0 1559]
 im = imread('CampusMap.png');
-h = image(xl, yl, im);impixelinfo,
+h = image(xl, yl, im); 
 ax = gca;
 ax.YDir = 'reverse';
 uistack(h, 'bottom');
-
-
-x = pixelLong;
-y = pixelLat;
-
 hold on;
-plot(x,y, 'o', 'MarkerFaceColor', 'r', 'MarkerSize', 6);
-grid on;
 
-function [y] = gpY2Pixel(lat) 
-    parentGPSY = 38.546339;
-    latitudeIncrementPerPixel = 0.0000133;
-    y = abs((parentGPSY)-(lat))/ latitudeIncrementPerPixel;
-end
+c = gradient(y);
+scatter(x, y, 8, c, 'filled');
 
-function [x] = gpX2Pixel(long)
-    parentGPSX = -121.768097;
-    longitudeIncrementPerPixel = 0.0000167;
-    x = abs((parentGPSX)-(long))/longitudeIncrementPerPixel;
-end
+            value = app.Slider.Value;
+            if(app.map == 0)
+                app.status.Value = "Please choose csv data!";
+                imshow('meme.jpeg','parent',app.UIAxes)
+           else
+                curve = animatedline(app.UIAxes,'o','MarkerFaceColor', 'r');
+                app.Slider.Limits = 2:length(app.map.x); 
+                 for i = 1:app.Slider.Value
+                    if(i <= length(app.map.x))
+                        addpoints(curve, app.map.x(i), app.map.y(i)); 
+                        drawnow;
+                    else
+                        app.Slider.Value = 0;
+                    end                   
+                  end
+            end
